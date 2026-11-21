@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090608" />
+  <meta name="description" content="Uma carta feita com carinho, de coração para coração." />
+  <title>Para você, com amor ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090608;
+      --red: #de3048;
+      --rose: #ff8292;
+      --soft: #e4c8ce;
+      --muted: #aa8991;
+      --border: rgba(255, 111, 132, .20);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #fff0f1;
+      font-family: var(--sans);
+      background:
+        radial-gradient(ellipse 52% 36% at 17% 11%, rgba(101, 10, 30, .33), transparent 83%),
+        radial-gradient(ellipse 48% 42% at 89% 61%, rgba(124, 9, 35, .20), transparent 85%),
+        linear-gradient(155deg, #0d080b 0%, #070507 54%, #11060b 100%);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      opacity: .19;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");
+    }
+    ::selection { background: #a4263c; color: #fff; }
+    .glow {
+      position: fixed;
+      width: 390px;
+      height: 390px;
+      left: 50%;
+      top: 48%;
+      transform: translate(-50%, -50%);
+      background: #9d142d;
+      filter: blur(150px);
+      opacity: .17;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hearts {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .floating-heart {
+      position: absolute;
+      bottom: -8vh;
+      left: var(--left);
+      color: var(--color);
+      font-size: var(--size);
+      opacity: 0;
+      text-shadow: 0 0 20px rgba(222, 48, 72, .35);
+      animation: float-heart var(--duration) linear var(--delay) infinite;
+      user-select: none;
+    }
+    @keyframes float-heart {
+      0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-15deg) scale(.75); }
+      12% { opacity: var(--opacity); }
+      82% { opacity: var(--opacity); }
+      100% { opacity: 0; transform: translate3d(var(--drift), -115vh, 0) rotate(25deg) scale(1.12); }
+    }
+    .site { position: relative; isolation: isolate; z-index: 1; }
+    .topbar {
+      max-width: 1060px;
+      margin: auto;
+      padding: 30px 32px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 13px; letter-spacing: .05em; }
+    .brand-symbol {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 1px solid rgba(237, 75, 101, .4);
+      background: rgba(182, 33, 59, .12);
+      color: #f45d75;
+      font-size: 19px;
+      box-shadow: 0 0 22px rgba(231, 44, 73, .12);
+    }
+    .top-note {
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 16px;
+      color: #dcaeb9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, .025);
+    }
+    .hero {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 73px 24px 57px;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: .32em;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c7455c);
+    }
+    .eyebrow::after { transform: rotate(180deg); }
+    h1 {
+      margin: 22px auto 20px;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(46px, 7vw, 78px);
+      line-height: 1.13;
+      letter-spacing: -.045em;
+      max-width: 760px;
+    }
+    h1 em {
+      display: inline-block;
+      color: #f36b83;
+      font-weight: 400;
+      font-style: italic;
+      text-shadow: 0 0 60px rgba(222, 48, 72, .24);
+    }
+    .hero p {
+      color: #ba9aa2;
+      font-size: 14px;
+      line-height: 1.9;
+      letter-spacing: .012em;
+      max-width: 410px;
+      margin: auto;
+    }
+    .hero-sparkle { margin: 29px auto 0; color: #da5267; font-size: 20px; letter-spacing: .95em; padding-left: .95em; }
+    .envelope-wrap { width: min(100% - 32px, 760px); margin: 0 auto; position: relative; padding: 17px; }
+    .envelope-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(246, 92, 118, .19);
+      border-radius: 25px;
+      background: linear-gradient(138deg, rgba(250, 117, 133, .07), transparent 33%, rgba(153, 16, 42, .09));
+      box-shadow: 0 30px 110px rgba(0, 0, 0, .34), 0 0 55px rgba(155, 18, 44, .08);
+    }
+    .letter {
+      position: relative;
+      overflow: hidden;
+      min-height: 450px;
+      padding: 53px clamp(24px, 6.5vw, 70px) 47px;
+      border: 1px solid rgba(255, 157, 169, .11);
+      border-radius: 15px;
+      background:
+        radial-gradient(ellipse at 50% -9%, rgba(137, 23, 44, .16), transparent 55%),
+        linear-gradient(158deg, #211116 0%, #170d11 56%, #190c12 100%);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .015), 0 20px 75px rgba(0, 0, 0, .24);
+    }
+    .letter::before, .letter::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(223, 88, 112, .11);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .letter::before { left: -85px; top: -90px; }
+    .letter::after { right: -85px; bottom: -90px; }
+    .letter-header { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    .letter-kicker { color: #de96a6; text-transform: uppercase; font-size: 10px; letter-spacing: .24em; font-weight: 700; }
+    .letter-number { color: #805864; font-family: var(--serif); font-size: 13px; font-style: italic; }
+    .letter-title {
+      margin: 28px 0 7px;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(45px, 7vw, 65px);
+      color: #f18b9c;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .letter-divider { display: flex; align-items: center; gap: 14px; margin: 20px 0 30px; }
+    .letter-divider::before, .letter-divider::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, rgba(214, 75, 97, .48), rgba(214, 75, 97, .07)); }
+    .letter-divider::after { transform: rotate(180deg); }
+    .letter-divider span { color: #e85770; font-size: 14px; }
+    .letter-body {
+      min-height: 255px;
+      font-family: var(--serif);
+      color: #f2dce0;
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 2.1;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+    .letter-body p { margin: 0 0 1.15em; }
+    .letter-foot { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 31px; }
+    .letter-foot::before, .letter-foot::after { content: ""; height: 1px; width: 54px; background: linear-gradient(90deg, transparent, rgba(244, 88, 117, .35)); }
+    .letter-foot::after { transform: rotate(180deg); }
+    .seal { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; background: radial-gradient(circle at 32% 25%, #fa6a7f, #aa1f3a 72%); border: 2px solid rgba(255, 174, 185, .25); color: white; font-size: 19px; box-shadow: 0 4px 22px rgba(219, 30, 60, .24); animation: heartbeat 3.4s ease-in-out infinite; }
+    @keyframes heartbeat { 0%, 82%, 100% { transform: scale(1); } 87% { transform: scale(1.09); } 92% { transform: scale(1); } 96% { transform: scale(1.06); } }
+    .bottom { max-width: 800px; padding: 45px 24px 42px; margin: auto; text-align: center; }
+    .bottom p { margin: 0; color: #8f6a75; text-transform: uppercase; letter-spacing: .23em; font-size: 10px; font-weight: 600; }
+    .bottom .signature { color: #d55870; font-family: "Great Vibes", cursive; font-size: 34px; margin-top: 12px; text-transform: none; letter-spacing: 0; font-weight: 400; }
+    @media (max-width: 600px) {
+      .topbar { padding: 19px 18px 0; }
+      .top-note { padding: 9px 11px; font-size: 9px; letter-spacing: .05em; }
+      .brand { font-size: 12px; gap: 8px; }
+      .brand-symbol { width: 31px; height: 31px; }
+      .hero { padding: 73px 21px 43px; }
+      .hero p { font-size: 13px; }
+      .envelope-wrap { width: calc(100% - 22px); padding: 9px; }
+      .envelope-wrap::before { border-radius: 19px; }
+      .letter { min-height: 390px; padding: 43px 25px 35px; }
+      .letter-body { min-height: 230px; }
+      .bottom { padding: 40px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .floating-heart { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="topbar">
+      <div class="brand"><span class="brand-symbol" aria-hidden="true">♥</span><span>feito com amor</span></div>
+      <div class="top-note">só para você &nbsp; ♡</div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="main-title">
+        <div class="eyebrow">de coração para coração</div>
+        <h1 id="main-title">Palavras que são <em>só suas.</em></h1>
+        <p>Algumas coisas merecem ser guardadas em um lugar especial. Este é o nosso.</p>
+        <div class="hero-sparkle" aria-hidden="true">✦ ♥ ✦</div>
+      </section>
+
+      <div class="envelope-wrap">
+        <article class="letter" aria-label="Sua carta de amor">
+          <div class="letter-header">
+            <span class="letter-kicker">uma carta especial</span>
+            <span class="letter-number">01 / ♡</span>
+          </div>
+          <h2 class="letter-title">Para você, meu amor</h2>
+          <div class="letter-divider" aria-hidden="true"><span>♥</span></div>
+
+          <div class="letter-body" id="texto-da-carta">
+
+           meu amor, quando for ler essa mensagem, separe em um momento que esteja tudo bem pra você aí pra você ler com carinho, tá? não lê se tiver muito ocupada não pq é muita coisa KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.
+
+
+
+eu sei que as coisas não estão sendo tão fáceis pra você, e sei dos momentos difíceis que a gente enfrentou. e talvez eu não consiga entender tudo que passa na sua cabeça, tudo que você está sentindo e pensando que te deixa mal. mas eu queria muito que você soubesse que eu me importo muito com você, com seus sentimentos, com seus dias ruins e com tudo que está acontecendo.
+
+
+
+mesmo com tudo que está acontecendo, eu quero estar ao seu lado e aprender tudo com você e ter experiências boas com você.
+
+
+
+não quero que se sinta obrigada por explicar o que tá acontecendo com você, de conversar comigo ou de demonstrar carinho. e não quero que você se esforce pra me deixar feliz ou esconder sua tristeza pra mim (por mais que vc não esteja fazendo isso). quero que entenda que eu não amo somente quando você está alegre, sorrindo, zoando e tal. eu amo você por quem você é, e os nossos momentos ruins não fazem de você menos especial, menos importante, menos digna do meu amor, que "não me merece" ou algo que não faz sentir o quanto eu sou sortudo de ter você na minha vida.
+
+
+
+eu não quero enfrentar apenas os dias bons ao seu lado. quero aprender a atravessar os difíceis com você também. eu sei que não é tão simples e que não vou conseguir resolver todos os seus problemas e fazer essa dor desaparecer. mas posso te ouvir, tentar te entender melhor, respeitar seu tempo e te oferecer carinho nos momentos que você mais precisar.
+
+
+
+as vezes eu tenho medo do que dizer ou agir com você, pois tenho medo de acabar piorando as coisas sem querer. mas o que eu mais quero é entender como eu posso fazer você bem, o que te conforta, o que está te incomodando e como eu posso demonstrar o meu amor de uma maneira que te ajude.&#x20;
+
+
+
+eu queria que você pudesse se enxergar com um pouco do carinho que eu te enxergo. você é muito mais do que suas inseguranças, dificuldades ou seus erros que você pensa sobre a si mesma. uma coisa que me deixa mal é saber que você se enxerga de uma forma tão dura, se chamando de burra, de fracassada, de decepção, como se tudo que é bom seu deixasse de importar por conta que você ainda não conseguiu concluir seus objetivos. e queria te dizer que não é nada disso.
+
+
+
+você tem 19 anos, meu amor. mesmo que pareça que o tempo tá passando muito rápido, que você já devia estar trabalhando, estudando, passando em concursos e conquistando a sua independência, você não está atrasada na sua própria vida, meu amor.
+
+
+
+mesmo que olhar pra tudo isso seja angustiante, não existe uma idade exata que tudo precisa ser resolvido. existem pessoas que encontram seus caminhos mais cedo e outras que demandam mais tempo. mas nenhuma dessas pessoas vale menos por isso. não passar em um concurso e não conseguir um emprego não significam que você seja incapaz ou que não vai conseguir. e ter dificuldade em estudar ou aprender não te torna menos inteligente.
+
+
+
+eu sei que estudar em casa não é tão simples quanto parece. sei que o barulho te atrapalha, que nem sempre você vai conseguir se concentrar e que as cobranças acabam tornando tudo isso ainda mais pesado e estressante. afinal, eu sei como é frustrante querer fazer alguma coisa e sentir que o ambiente ao seu redor não ajuda, principalmente quando você está se cobrando tanto por dentro. eu acredito no seu esforço.
+
+
+
+se você precisar de uma ajuda pra organizar seus estudos, encontrar alguma forma de se concentrar melhor ou começar aos pouquinhos, eu estou aqui para te ajudar. não quero fazer isso pra te pressionar, quero que consiga alcançar as coisas que deseja, no seu tempo e respeitando seus limites. você não precisa conquistar tudo de uma vez.
+
+
+
+eu sinto sua falta, meu amor. sinto falta das nossas conversas, das nossas brincadeiras e de sentir a gente pertinho, mesmo estando longe fisicamente. mas não quero que essa saudade se torne em mais uma responsabilidade pra você. eu não quero que a gente enfrente a vida como se tivesse uma obrigação de salvar o outro. quero que a gente seja uma dupla, que possa compartilhar as dificuldades e comemorar as pequenas conquistas.
+
+
+
+nunca pense que precisa conquistar alguma coisa pra merecer amor. você já merece amor, respeito e carinho simplesmente por ser quem você é. você não é ruim, grossa e maldosa. você é especial, gentil, linda e carinhosa, só está passando por um momento difícil.
+
+
+
+você é minha melhor amiga, minha parceira, minha namorada e, espero que futuramente, minha esposa ❤️.
+
+
+
+eu vou te declarar uma coisa que nunca declararam essa pra mim, mas escutei enquanto estava passando por momentos parecidos, essa música aqui:
+
+
+
+Melhor Dia 12 - Levanta (part. Matuê e Mc Leozinho ZS)
+
+
+
+[Matuê]
+
+Irmão, eu tô aqui (tô)
+
+Não é porque o corre miou, eu não vou sumir (não)
+
+Tô contigo nos dias bons, nos dias ruins
+
+Eu sempre vou tá aqui
+
+Não cai na ilusão, melhores dias virão
+
+
+
+Irmão, eu tô aqui (sim)
+
+E se o barraco desabou, te ajudo a construir (yeah)
+
+Lembra da luz que te guiou, mantém no caminho
+
+Eu vou sempre tá ali
+
+Não desanima não, melhores dias virão
+
+
+
+...
+
+
+
+Abri os caminhos, olhei pro meu lado e vi que eu não tava sozinho
+
+Na pior fase aparece o melhor dia, basta acreditar
+
+Amanhã vai ser melhor ainda
+
+
+
+espero que leia isso com muito carinho mesmo, ah e mais uma coisa:
+
+
+
+O lugar onde você está
+
+네가 있는 곳
+
+Talvez esse lugar seja minha casa
+
+아마 그곳이 mi casa
+
+Com você, me sinto rico
+
+With you, I’ma feel rich
+
+Esse lugar mesmo, minha casa
+
+바로 그곳이 mi casa
+
+
+
+...
+
+
+
+Se você estiver comigo, todo lugar pode ser meu lar
+
+너만 있다면 다 내 집이 될 거야
+
+Você sabe que eu quero esse lar
+
+You know I want that home
+
+Você sabe que você é meu lar
+
+You know you got that home
+
+Seu amor, seu amor, seu amor (eu sinto falta)
+
+Your love, your love, your love (I miss that)
+
+
+
+home, BTS.
+
+
+
+Eu te amo muito, minha menina ❤️.
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="letter-foot" aria-hidden="true"><span class="seal">♥</span></div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="bottom">
+      <p>cada palavra, um pedacinho de carinho</p>
+      <p class="signature">com todo meu amor ♡</p>
+    </footer>
+  </div>
+
+  <script>
+    // Corações flutuantes, criados automaticamente no fundo do site.
+    const heartsContainer = document.getElementById('hearts');
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isReducedMotion) {
+      for (let i = 0; i < 27; i++) {
+        const heart = document.createElement('span');
+        const rand = (min, max) => Math.random() * (max - min) + min;
+        heart.className = 'floating-heart';
+        heart.textContent = i % 4 === 0 ? '♡' : '♥';
+        heart.style.setProperty('--left', `${rand(1, 99).toFixed(1)}%`);
+        heart.style.setProperty('--size', `${rand(11, 26).toFixed(1)}px`);
+        heart.style.setProperty('--duration', `${rand(14, 29).toFixed(1)}s`);
+        heart.style.setProperty('--delay', `${rand(-30, 0).toFixed(1)}s`);
+        heart.style.setProperty('--opacity', rand(.12, .36).toFixed(2));
+        heart.style.setProperty('--drift', `${rand(-100, 100).toFixed(0)}px`);
+        heart.style.setProperty('--color', i % 4 === 0 ? '#ffa1b0' : '#dc3154');
+        heartsContainer.appendChild(heart);
+      }
+    }
+  </script>
+</body>
+</html>
